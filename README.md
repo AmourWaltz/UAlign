@@ -1,4 +1,4 @@
-# CUFact: Leveraging Certainty and Uncertainty Estimations to Improve Factuality for LLMs
+# CUFact: Leveraging Certainty and Uncertainty Estimations for Factuality Alignment on Large Language Models
 
 ## Implementation
 
