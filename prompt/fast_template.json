@@ -1,0 +1,10 @@
+{
+    "description": "Standard English Question-Answering Template.",
+    "instruction": "You are an excellent mathematician. Answer the following mathematical questions.",
+    "standard_prompt": "{instruction}\n\nQuestion: {question}\nResponse: ",
+    "few_shot_split": {
+        "input": "Question: ", 
+        "output": "Response: "
+    },
+    "output_split": "Question:"
+}

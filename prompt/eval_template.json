@@ -1,0 +1,7 @@
+{
+    "description": "Standard Template of NLI evaluation bewteen generated answer and gold answer on multilingual QA val dataset.",
+    "few_shot_use": false,
+    "persona_info": "You are an excellent natural language inference model.",
+    "instruction": "You MUST determine whether the Predicted Answer is entailed or not by the Gold Answer to judge if it is correct. The response you provided MUST be \"Yes\" or \"No\"\n",
+    "standard_prompt": "{instruction}\n### Predicted Answer ###: {}\n### Gold Answer ###: {}\n### Your Response ###: (\"Yes\" or \"No\"): "
+}

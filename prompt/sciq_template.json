@@ -1,0 +1,143 @@
+{
+    "description": "Standard English Closed-book Question-Answering Template.",
+    "instruction": "You are an excellent question responder. Answer the question based on your knowledge.",
+    "standard_prompt": "{instruction}\n\n### Question ###: {question}\n### Response ###: ",
+    "few_shot_prompt": "{instruction}\n\n{examples}\n\n### Question ###: {question}\n### Response ###: ",
+    "few_shot_split": {
+        "input": "### Question ###: ", 
+        "output": "### Response ###: "
+    },
+    "output_split": "###",
+    "sample_icl_examplar": {
+        "examplar_1": [
+            {
+                "question": "What type of organism is commonly used in preparation of foods such as cheese and yogurt?",
+                "answer": "mesophilic organisms"
+            }
+        ],
+        "examplar_2": [
+            {
+                "question": "What phenomenon makes global winds blow northeast to southwest or the reverse in the northern hemisphere and northwest to southeast or the reverse in the southern hemisphere?",
+                "answer": "coriolis effect"
+            }
+        ],
+        "examplar_3": [
+            {
+                "question": "Changes from a less-ordered state to a more-ordered state (such as a liquid to a solid) are always what?",
+                "answer": "exothermic"
+            }
+        ],
+        "examplar_4": [
+            {
+                "question": "What is the least dangerous radioactive decay?",
+                "answer": "alpha decay"
+            }
+        ],
+        "examplar_5": [
+            {
+                "question": "Kilauea in hawaii is the world’s most continuously active volcano. very active volcanoes characteristically eject red-hot rocks and lava rather than this?",
+                "answer": "smoke and ash"
+            }
+        ],
+        "examplar_6": [
+            {
+                "question": "When a meteoroid reaches earth, what is the remaining object called?",
+                "answer": "meteorite"
+            }
+        ],
+        "examplar_7": [
+            {
+                "question": "What kind of a reaction occurs when a substance reacts quickly with oxygen?",
+                "answer": "combustion reaction"
+            }
+        ],
+        "examplar_8": [
+            {
+                "question": "Organisms categorized by what species descriptor demonstrate a version of allopatric speciation and have limited regions of overlap with one another, but where they overlap they interbreed successfully?.",
+                "answer": "ring species"
+            }
+        ],
+        "examplar_9": [
+            {
+                "question": "Alpha emission is a type of what?",
+                "answer": "radioactivity"
+            }
+        ],
+        "examplar_10": [
+            {
+                "question": "What is the stored food in a seed called?",
+                "answer": "endosperm"
+            }
+        ]
+    },
+    "generate_icl_examplar": {
+        "examplar_1": [
+            {
+                "question": "What organ systems link exchange surfaces with cells throughout the body?",
+                "answer": "circulatory."
+            }
+        ],
+        "examplar_2": [
+            {
+                "question": "What is the termination of a pregnancy in progress called?",
+                "answer": "abortion"
+            }
+        ],
+        "examplar_3": [
+            {
+                "question": "Cutting down on the use of chemical fertilizers and preserving wetlands are ways to prevent what 'unlivable' regions in bodies of water?",
+                "answer": "dead zones"
+            }
+        ],
+        "examplar_4": [
+            {
+                "question": "What hormone, which is associated with luteinizing hormone and male sexuality, helps bring about physical changes in puberty?",
+                "answer": "testosterone"
+            }
+        ],
+        "examplar_5": [
+            {
+                "question": "Where do angiosperms produce seeds in flowers?",
+                "answer": "ovaries"
+            }
+        ],
+        "examplar_6": [
+            {
+                "question": "In order to create food, what do photosynthetic protists use?",
+                "answer": "light energy"
+            }
+        ]
+    },
+    "generate_icl_idk_examplar": {
+        "examplar_1": [
+            {
+                "question": "In order to create food, what do photosynthetic protists use?",
+                "answer": "light energy"
+            },
+            {
+                "question": "Who is the first man to walk on the Mars?",
+                "answer": "Sorry, I don't know."
+            }
+        ],
+        "examplar_2": [
+            {
+                "question": "When did the World War III start?",
+                "answer": "Sorry, I don't know."
+            },
+            {
+                "question": "What is the termination of a pregnancy in progress called?",
+                "answer": "abortion"
+            }
+        ],
+        "examplar_3": [
+            {
+                "question": "Cutting down on the use of chemical fertilizers and preserving wetlands are ways to prevent what 'unlivable' regions in bodies of water?",
+                "answer": "dead zones"
+            },
+            {
+                "question": "Where were the 2036 Summer Olympic Games held?",
+                "answer": "Sorry, I don't know."
+            }
+        ]
+    }
+}

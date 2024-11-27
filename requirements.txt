@@ -1,0 +1,16 @@
+transformers
+trl
+peft
+sentencepiece
+tokenizers
+accelerate
+datasets
+bitsandbytes
+scipy
+sentencepiece
+gradio
+wandb
+openai
+numpy
+pytz
+matplotlib

@@ -1,0 +1,143 @@
+{
+    "description": "Standard English Closed-book Question-Answering Template.",
+    "instruction": "You are an excellent question responder. Answer the question based on your knowledge.",
+    "standard_prompt": "{instruction}\n\n### Question ###: {question}\n### Response ###: ",
+    "few_shot_prompt": "{instruction}\n\n{examples}\n\n### Question ###: {question}\n### Response ###: ",
+    "few_shot_split": {
+        "input": "### Question ###: ", 
+        "output": "### Response ###: "
+    },
+    "output_split": "###",
+    "sample_icl_examplar": {
+        "examplar_1": [
+            {
+                "question": "where did they film hot tub time machine?",
+                "answer": "Fernie Alpine Resort"
+            }
+        ],
+        "examplar_2": [
+            {
+                "question": "who has the right of way in international waters?",
+                "answer": "Neither vessel"
+            }
+        ],
+        "examplar_3": [
+            {
+                "question": "when was the immigration reform and control act passed?",
+                "answer": "November 6, 1986"
+            }
+        ],
+        "examplar_4": [
+            {
+                "question": "who's hosting the super bowl in 2019?",
+                "answer": "Atlanta, Georgia"
+            }
+        ],
+        "examplar_5": [
+            {
+                "question": "what is the origin of the name cynthia?",
+                "answer": "Greek"
+            }
+        ],
+        "examplar_6": [
+            {
+                "question": "when do the red hot chili peppers tour?",
+                "answer": "March 2018"
+            }
+        ],
+        "examplar_7": [
+            {
+                "question": "who plays mavis in the movie hotel transylvania?",
+                "answer": "Sadie Sandler"
+            }
+        ],
+        "examplar_8": [
+            {
+                "question": "who sings should have seen it in color?",
+                "answer": "Jamey Johnson"
+            }
+        ],
+        "examplar_9": [
+            {
+                "question": "what is the size of the angles of an equilateral triangle?",
+                "answer": "60°"
+            }
+        ],
+        "examplar_10": [
+            {
+                "question": "who sings the marriage of figaro in shawshank redemption?",
+                "answer": "Edith Mathis"
+            }
+        ]
+    },
+    "generate_icl_examplar": {
+        "examplar_1": [
+            {
+                "question": "when did india participate in olympics for first time?",
+                "answer": "1900."
+            }
+        ],
+        "examplar_2": [
+            {
+                "question": "when is it revealed that luke and leia are siblings?",
+                "answer": "In Return of the Jedi"
+            }
+        ],
+        "examplar_3": [
+            {
+                "question": "what is the population of farmington new mexico?",
+                "answer": "41,629"
+            }
+        ],
+        "examplar_4": [
+            {
+                "question": "when will new tappan zee bridge be completed?",
+                "answer": "the end of 2018"
+            }
+        ],
+        "examplar_5": [
+            {
+                "question": "where is the new tottenham stadium being built?",
+                "answer": "the London Borough of Haringey"
+            }
+        ],
+        "examplar_6": [
+            {
+                "question": "who plays glenn on the good doctor episode?",
+                "answer": "Titus Welliver"
+            }
+        ]
+    },
+    "generate_icl_idk_examplar": {
+        "examplar_1": [
+            {
+                "question": "where is the new tottenham stadium being built?",
+                "answer": "the London Borough of Haringey"
+            },
+            {
+                "question": "Who is the first man to walk on the Mars?",
+                "answer": "Sorry, I don't know."
+            }
+        ],
+        "examplar_2": [
+            {
+                "question": "When did the World War III start?",
+                "answer": "Sorry, I don't know."
+            },
+            {
+                "question": "what is the population of farmington new mexico?",
+                "answer": "41,629"
+            }
+        ],
+        "examplar_3": [
+            {
+                "question": "who plays glenn on the good doctor episode?",
+                "answer": "Titus Welliver"
+            },
+            {
+                "question": "Where were the 2036 Summer Olympic Games held?",
+                "answer": "Sorry, I don't know."
+            }
+        ]
+    }
+}

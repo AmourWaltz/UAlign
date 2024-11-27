@@ -1,0 +1,143 @@
+{
+    "description": "Standard English Closed-book Question-Answering Template.",
+    "instruction": "You are an excellent question responder. Answer the question based on your knowledge.",
+    "standard_prompt": "{instruction}\n\n### Question ###: {question}\n### Response ###: ",
+    "few_shot_prompt": "{instruction}\n\n{examples}\n\n### Question ###: {question}\n### Response ###: ",
+    "few_shot_split": {
+        "input": "### Question ###: ", 
+        "output": "### Response ###: "
+    },
+    "output_split": "###",
+    "sample_few_shot_examplar": {
+        "examplar_1": [
+            {
+                "question": "Which William wrote the novel Lord Of The Flies?",
+                "answer": "Golding"
+            }
+        ],
+        "examplar_2": [
+            {
+                "question": "Where in England was Dame Judi Dench born?",
+                "answer": "York, UK"
+            }
+        ],
+        "examplar_3": [
+            {
+                "question": "Neil Armstrong was a pilot in which war?",
+                "answer": "Korean"
+            }
+        ],
+        "examplar_4": [
+            {
+                "question": "How many home runs did baseball great Ty Cobb hit in the three world series in which he played?",
+                "answer": "None"
+            }
+        ],
+        "examplar_5": [
+            {
+                "question": "Who had a big 60s No 1 with Tossin' and Turnin'?",
+                "answer": "Bobby Lewis"
+            }
+        ],
+        "examplar_6": [
+            {
+                "question": "Which Disney film had the theme tune A Whole New World?",
+                "answer": "'Ala' ad Din"
+            }
+        ],
+        "examplar_7": [
+            {
+                "question": "In basketball where do the Celtics come from?",
+                "answer": "City of Boston"
+            }
+        ],
+        "examplar_8": [
+            {
+                "question": "Which element along with polonium did the Curies discover?",
+                "answer": "Radium"
+            }
+        ],
+        "examplar_9": [
+            {
+                "question": "Who was the Egyptian king whose tomb an treasures were discovered in the Valley of the Kings in 1922?",
+                "answer": "Tutanhamon"
+            }
+        ],
+        "examplar_10": [
+            {
+                "question": "Where were the 2004 Summer Olympic Games held?",
+                "answer": "Atina, Greece"
+            }
+        ]
+    },
+    "generate_icl_examplar": {
+        "examplar_1": [
+            {
+                "question": "How many bottles of champagne are there in a magnum?",
+                "answer": "Two standard bottles."
+            }
+        ],
+        "examplar_2": [
+            {
+                "question": "Rick Baker won the first make-up Oscar for which 1981 horror film set in England?",
+                "answer": "An American Werewolf in London"
+            }
+        ],
+        "examplar_3": [
+            {
+                "question": "Who introduced the potato and tobacco to Europe.",
+                "answer": "Spanish explorers"
+            }
+        ],
+        "examplar_4": [
+            {
+                "question": "Where in the body does a cataract form?",
+                "answer": "The lens of the eye"
+            }
+        ],
+        "examplar_5": [
+            {
+                "question": "How many copies did Doubleday run off the presses in its first printing of Bill Cosby's 1987 book Time Flies?",
+                "answer": "1.5 million"
+            }
+        ],
+        "examplar_6": [
+            {
+                "question": "Which musical featured the song You'll Never Walk Alone?",
+                "answer": "Marry Go Round"
+            }
+        ]
+    },
+    "generate_icl_idk_examplar": {
+        "examplar_1": [
+            {
+                "question": "How many bottles of champagne are there in a magnum?",
+                "answer": "Two standard bottles."
+            },
+            {
+                "question": "Who is the first man to walk on the Mars?",
+                "answer": "Sorry, I don't know."
+            }
+        ],
+        "examplar_2": [
+            {
+                "question": "When did the World War III start?",
+                "answer": "Sorry, I don't know."
+            },
+            {
+                "question": "Rick Baker won the first make-up Oscar for which 1981 horror film set in England?",
+                "answer": "An American Werewolf in London"
+            }
+        ],
+        "examplar_3": [
+            {
+                "question": "Who introduced the potato and tobacco to Europe.",
+                "answer": "Spanish explorers"
+            },
+            {
+                "question": "Where were the 2036 Summer Olympic Games held?",
+                "answer": "Sorry, I don't know."
+            }
+        ]
+    }
+}

@@ -1,0 +1,24 @@
+name: refact
+channels:
+  - conda-forge
+dependencies:
+  - transformers
+  - trl
+  - peft
+  - sentencepiece
+  - tokenizers
+  - accelerate
+  - datasets
+  - bitsandbytes
+  - scipy
+  - sentencepiece
+  - gradio
+  - wandb
+  - openai
+  - fire
+  - rouge_score
+  - numpy
+  - tmux
+  - pytz
+  - matplotlib
+  
