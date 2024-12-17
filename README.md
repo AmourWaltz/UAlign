@@ -1,4 +1,4 @@
-# UFact: Leveraging Uncertainty Estimations for Factuality Alignment on Large Language Models
+# UAlign: Leveraging Uncertainty Estimations for Factuality Alignment on Large Language Models
 
 The management of this project and completed implementations are in progress and will be available soon ...  
 
