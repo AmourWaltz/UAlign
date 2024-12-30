@@ -1,9 +1,4 @@
 # UAlign: Leveraging Uncertainty Estimations for Factuality Alignment on Large Language Models
-<<<<<<< Updated upstream
-
-The management of this project and completed implementations are in progress and will be available soon ...  
-=======
->>>>>>> Stashed changes
 
 ## Introduction
 
