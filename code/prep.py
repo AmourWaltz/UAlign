@@ -19,7 +19,8 @@ import pandas as pd
 from utils import *
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--dataset', type=str, default="triviaqa", choices=["triviaqa", "nqopen", "sciq"])
+parser.add_argument('--dataset', type=str, default="triviaqa", choices=dataset_list)
+parser.add_argument('--method', type=str, default="rtuning", choices=methods)
 parser.add_argument('--output_dir', type=str, default="./data/{}/raw")
 args = parser.parse_args()
 
@@ -188,20 +189,60 @@ def get_nqopen_dataset(output_dir):
 
 
 """
+R-tuning training dataset preparation
+"""
+def get_rtuning_dataset():
+    dataset_comb = ["triviaqa", "sciq", "nqopen"]
+    models = ["llama3", "mistral"]
+
+    input_file = "./data/{}/prep/{}_{}_vanilla_icl/{}_{}_train.json"
+    output_file = "./data/comb/raw/train_{}_rtuning.json"
+
+    for model_use in models:
+        ins_set = []
+        save_path = output_file.format(model_use)
+        for dataset_use in dataset_comb:
+            data_path = input_file.format(dataset_use, model_use, dataset_use, model_use, dataset_use)
+            data_pool = read_json(data_path)
+            print(f"Data size of {model_use}_{dataset_use}: {len(data_pool)}")
+            for data in data_pool:
+                # import pdb; pdb.set_trace()
+                ins = {
+                    "question_id": data["question_id"],
+                    "question": data["question"],
+                }
+                if data["scores"]["greedy_scores_avg"] == 0:
+                    ins["answer"] = "sorry, I don't know."
+                else:
+                    ins["answer"] = data["answer"]
+                    
+                ins_set.append(ins)
+
+        write_json(save_path, ins_set)
+        print(f"Data size of {model_use}: {len(ins_set)}")
+        print(f"Examples: {read_json(save_path)[0:10]}")
+
+"""
 Main part
 """
 if __name__=="__main__":
-    # Output directory
-    output_dir = args.output_dir.format(args.dataset)
-    print(f"Data saved to {output_dir}")
+    if args.method == "prompt":
+        # Output directory
+        output_dir = args.output_dir.format(args.dataset)
+        print(f"Data saved to {output_dir}")
 
-    if not os.path.exists(output_dir):
-        os.makedirs(output_dir)
+        if not os.path.exists(output_dir):
+            os.makedirs(output_dir)
 
-    if args.dataset == "triviaqa":
-        get_triviaqa_dataset(output_dir)
-    elif args.dataset == "nqopen":
-        get_nqopen_dataset(output_dir)
-    elif args.dataset == "sciq":
-        get_sciq_dataset(output_dir)
+        if args.dataset == "triviaqa":
+            get_triviaqa_dataset(output_dir)
+        elif args.dataset == "webqa":
+            get_webqa_dataset(output_dir)
+        elif args.dataset == "sciq":
+            get_sciq_dataset(output_dir)
+        elif args.dataset == "nqopen":
+            get_nqopen_dataset(output_dir)
+    elif args.method == "rtuning":
+        get_rtuning_dataset()
+    
 

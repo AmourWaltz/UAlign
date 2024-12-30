@@ -29,7 +29,7 @@ model_path_dict = {
 }
 
 dataset_list = ["triviaqa", "sciq", "nqopen", "lsqa", "comb"]
-
+methods = ["prompt", "sft", "rtuning"]
 
 """
 Json utils

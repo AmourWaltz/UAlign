@@ -42,10 +42,10 @@ class ModelArguments:
 class DataArguments:
     data_dir: str = field(default="./data/{}/raw", metadata={"help": "Directory to save data."})
     dataset: str = field(default="fast", metadata={"help": "Dataset name.", "choices": dataset_list})
-    data_file: str = field(default="train_2w", metadata={"help": "Data file name."})
     prompt_dir: str = field(default="./prompt/", metadata={"help": "Path to the prompt."})
     continue_generate: bool = field(default=False, metadata={"help": "Continue from the previous generations."})
     save_suffix: str = field(default="sft", metadata={"help": "File name to save the results."})
+    method: str = field(default="sft", metadata={"help": "Method to use.", "choices": methods})
 
 
 @dataclass
@@ -229,7 +229,7 @@ def train():
 
     # Set up logging.
     training_args.output_dir = os.path.join(training_args.output_dir.format(data_args.dataset), 
-                                         f"{model_args.model_name}_{data_args.dataset}_{data_args.data_file}_{data_args.save_suffix}")
+                                         f"{model_args.model_name}_{data_args.dataset}_{data_args.method}_{data_args.save_suffix}")
     
     if not os.path.exists(training_args.output_dir):
         os.makedirs(training_args.output_dir)
@@ -260,7 +260,7 @@ def train():
     logging.info(f"Loading model and tokenizer from {model_name_or_path} ...")
     model = transformers.AutoModelForCausalLM.from_pretrained(model_name_or_path, 
                                                             # torch_dtype=torch.float16,
-                                                            # quantization_config=bnb_config if model_args.bnb_use else None,
+                                                            quantization_config=bnb_config if model_args.bnb_use else None,
                                                             use_cache=model_args.ues_cache,
                                                             device_map=model_args.divice_map
                                                             )
@@ -316,10 +316,14 @@ def train():
     # Load dataset and prompt
     # dataset = load_dataset("json", data_files=data_path, split="train")
     prompt_path = os.path.join(data_args.prompt_dir, f"triviaqa_template.json")
-    data_path = os.path.join(data_args.data_dir.format(data_args.dataset), f"{data_args.data_file}.json")
+    if data_args.method == "sft":
+        data_path = os.path.join(data_args.data_dir.format("comb"), f"train_sft.json")
+    elif data_args.method == "rtuning":
+        data_path = os.path.join(data_args.data_dir.format("comb"), f"train_{model_args.model_name}_rtuning.json")
+
     logging.info(f"Loading data from {data_path} ...")
     data_module = make_supervised_data_module(tokenizer=tokenizer, data_path=data_path, prompt_path=prompt_path)
-    # import pdb; pdb.set_trace()    
+    # import pdb; pdb.set_trace()
     
     # Save path
     output_dir = training_args.output_dir.format(data_args.dataset)

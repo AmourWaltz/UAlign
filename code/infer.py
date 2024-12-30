@@ -35,7 +35,7 @@ class ModelArguments:
     model_name: str = field(default="llama31_ins", metadata={"help": "Model name.", "choices": model_path_dict.keys()})
     # LoRA setting
     lora_use: bool = field(default=False, metadata={"help": "Use LoRA or not."})
-    lora_weights: str = field(default="./exp/{}/train", metadata={"help": "LoRA weights path."})
+    lora_weights: str = field(default="./exp/comb/train/{}_comb_{}", metadata={"help": "LoRA weights path."})
     model_suffix: str = field(default="no_lora", metadata={"help": "File name to save the results."})
     # Bits and Bytes config
     bnb_use: bool = field(default=False, metadata={"help": "Whether to use BitsAndBytesConfig."})
@@ -202,8 +202,7 @@ def infer():
     )
 
     if model_args.lora_use:
-        model_args.lora_weights = os.path.join(model_args.lora_weights.format(data_args.dataset), 
-                                         f"{model_args.model_name}_{data_args.dataset}_{model_args.model_suffix}")
+        model_args.lora_weights = model_args.lora_weights.format(model_args.model_name, model_args.model_suffix)
         model = PeftModel.from_pretrained(
             model,
             model_id=model_args.lora_weights,
@@ -220,11 +219,11 @@ def infer():
     dataset = json.load(open(data_path))
 
     # Load prompt and select the prompt type.
-    prompt_template = json.load(open(os.path.join(data_args.prompt_dir, 
-                                                  f"infer_template.json")))
+    prompt_template = json.load(open(os.path.join(data_args.prompt_dir,
+                                                  f"{data_args.dataset}_template.json")))
     instruction = prompt_template["instruction"]
     prompt_split = prompt_template["output_split"]
-    if infer_args.icl_type == "icl" or infer_args.icl_type == "icl_idk":
+    if "icl" in infer_args.icl_type:
         few_shot_examplars, examplar_split = prompt_template[f"generate_{infer_args.icl_type}_examplar"], prompt_template["few_shot_split"]
         few_shot_examplar_list = format_examplar(few_shot_examplars, examplar_split)
         prompt_input = prompt_template["few_shot_prompt"]
@@ -254,7 +253,7 @@ def infer():
     first_log_flag = True
     with tqdm(total=data_len) as t:
         for idx, batch in enumerate(dataset):
-            if infer_args.icl_type == "icl" or infer_args.icl_type == "icl_idk":
+            if "icl" in infer_args.icl_type:
                 few_shot_examplar = random.choice(few_shot_examplar_list)
                 input_tokens = prompt_input.format(instruction=instruction, examples=few_shot_examplar, question=batch["question"])
             else:
