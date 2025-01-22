@@ -45,3 +45,17 @@ python code/infer.py --model_name $model --dataset $dataset --data_file validati
 ```shell
 python code/eval.py --model_name $model --dataset $dataset --data_file validation --model_suffix vanilla_$icl_type
 ```
+
+## Citation
+
+If you need to refer to [this paper](https://arxiv.org/abs/2412.11803), please cite with the bibtex listed blow:
+```bibtext
+@misc{xue2024ualignleveraginguncertaintyestimations,
+      title={UAlign: Leveraging Uncertainty Estimations for Factuality Alignment on Large Language Models}, 
+      author={Boyang Xue and Fei Mi and Qi Zhu and Hongru Wang and Rui Wang and Sheng Wang and Erxin Yu and Xuming Hu and Kam-Fai Wong},
+      year={2024},
+      eprint={2412.11803},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2412.11803}, 
+}
