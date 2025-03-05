@@ -1,5 +1,7 @@
 # UAlign: Leveraging Uncertainty Estimations for Factuality Alignment on Large Language Models
 
+Zhihu 知乎链接：[https://zhuanlan.zhihu.com/p/16213981801](https://zhuanlan.zhihu.com/p/16213981801)
+
 ## Introduction
 
 This is the repository for the UAlign framework, which leverages Uncertainty estimations to represent knowledge boundaries, and then explicitly incorporates these representations as input features into prompts for LLMs to Align with factual knowledge as examplified in 
